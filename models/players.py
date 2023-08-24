@@ -33,6 +33,8 @@ class Player:
 
     @classmethod 
     def get(cls, id):
+      """Return a player object"""
+
       data = db.get(doc_id=id)
       if data is None:
           return None
@@ -41,18 +43,27 @@ class Player:
       return player
     
     @classmethod
-    def all(cls, doc_ids):
-        all_data = db.all(doc_ids)
-        all_data_p = Player(**all_data)
-        return all_data_p
-        
+    def all(cls, type_player=False):
+       """Return a list of players"""
+       
+       all_data = db.all()
+       if type_player == False:
+           return all_data
+       else:
+            players = []
+            for player_dict in all_data:
+                #player = Player(**player_dict)
+                players.append(Player(**player_dict))
+            return players
+          
     
     
 
     
     
 if __name__=="__main__" :
-   print(Player.all(1))
+    players = Player.all(type_player=True)
+    print(players[0])
     
     
     
