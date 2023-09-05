@@ -13,7 +13,12 @@ class Player:
 
     
     def __str__(self):
+        """Used in print."""
         return f"{self.first_name} {self.name} {self.birthday} {self.chess_id}"
+    
+    def __repr__(self) -> str:
+        """Used in print."""
+        return str(self)
     
     def serialize(self):
        serialized_player ={
