@@ -1,2 +1,3 @@
 env/
 player_db/
+__pycache__
