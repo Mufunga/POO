@@ -11,7 +11,7 @@ class Player_controller:
         exit_resquested = False
 
         while not exit_resquested:
-            choice = self.view.desplay_player_menu()
+            choice = self.view.display_player_menu()
             if choice == "1":
                 palyer_infos = self.view.get_info_player()
                 player = Player(**palyer_infos)
@@ -24,8 +24,8 @@ class Player_controller:
             elif choice == "3":
                 exit_resquested = True
 
-    def create_player(self):
-        pass
+    #def create_player(self):
+        #pass
         
 
         

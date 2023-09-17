@@ -12,7 +12,7 @@ class View_payer:
 
         return player_info
     
-    def desplay_player_menu(self):
+    def display_player_menu(self):
         while True:
             print("\n", "Players manager".center(80,"-"), "\n")
             print("choose the following choice : ")
