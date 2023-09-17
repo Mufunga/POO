@@ -1,4 +1,5 @@
 from tinydb import TinyDB, Query
+from datetime import datetime
 
 db = TinyDB("player_db.json")
 User = Query()
@@ -25,6 +26,7 @@ class Player:
             "first_name":self.first_name,
             "name":self.name,
             "birthday":self.birthday,
+            #"birthday":self.birthday.strftime("%m/%d/%Y, %H:%M:%S"),
             "chess_id": self.chess_id
         }
        return serialized_player
