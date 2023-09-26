@@ -4,8 +4,8 @@ class View_app:
     def display_main_menu (self):
         print("Welcome to the Chess game ".center(80,"="))
         while True:
-            print("1. Player manger :")
-            print("2. Tournement manger")
+            print("1. Player manager :")
+            print("2. Tournement manager")
             print("3. Exit the game")
             choice = input("\n" "Enter your choice:")
             if choice in ["1","2","3"]:
