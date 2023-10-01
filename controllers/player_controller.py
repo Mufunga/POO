@@ -26,7 +26,7 @@ class Player_controller:
                 self.create_player()
                 
             elif choice == "2":
-                self.show_palyers_list()
+                self.show_players_list()
 
             elif choice == "3":
                 exit_resquested = True
