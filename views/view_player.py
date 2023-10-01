@@ -1,4 +1,6 @@
 from tabulate import tabulate
+from colorama import Fore,Back,Style
+
 class View_payer:
 
     def get_info_player(self):
@@ -27,7 +29,7 @@ class View_payer:
             else:
                 print("invalid choice\n")
     def display_players(self,players):
-       print(tabulate(players,headers="keys",tablefmt="grid"))
+       print(Fore.BLUE + Style.BRIGHT+ tabulate(players,headers="keys",tablefmt="grid"))
 
 
                 
