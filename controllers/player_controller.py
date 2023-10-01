@@ -2,6 +2,7 @@ from models.players import Player
 from views.view_player import View_payer
 from datetime import date
 
+
 class Player_controller:
     def __init__(self)-> None:
         self.view = View_payer()
@@ -12,14 +13,10 @@ class Player_controller:
         player = Player(**palyer_infos)
         return player.save()
     
-    def show_palyers_list(self):
-        valide = input("\n""press Enter to continue:")
-        players = Player.all(type_player=True)
-        for player in players:
-            print(player)
-      
-        
-    
+    def show_players_list(self):
+        players = Player.all()
+        self.view.display_players(players)
+
     def player_manager(self):
         exit_resquested = False
 
@@ -40,4 +37,4 @@ class Player_controller:
 
 if __name__=="__main__":
     plc=Player_controller()
-    print(plc.show_palyers_list())
+    print(plc.show_players_list())

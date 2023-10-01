@@ -69,8 +69,7 @@ class Player:
     
 if __name__=="__main__" :
     players = Player.all(type_player=True)
-    for player in players:
-        print(player)
+    print(players)
     
     
     

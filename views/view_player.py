@@ -1,3 +1,4 @@
+from tabulate import tabulate
 class View_payer:
 
     def get_info_player(self):
@@ -25,7 +26,9 @@ class View_payer:
                return choice
             else:
                 print("invalid choice\n")
-            
+    def display_players(self,players):
+       print(tabulate(players,headers="keys",tablefmt="grid"))
+
 
                 
 
