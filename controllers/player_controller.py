@@ -15,6 +15,7 @@ class Player_controller:
     
     def show_players_list(self):
         players = Player.all()
+        players.sort(key=lambda player: player["first_name"])
         self.view.display_players(players)
 
     def player_manager(self):
