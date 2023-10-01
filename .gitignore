@@ -1,3 +1,4 @@
-env/
+.venv/
 player_db/
 __pycache__/
+env/
