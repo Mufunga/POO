@@ -1,4 +1,5 @@
-class View_tournament:
+class ViewTournament:
+    
     def get_info_tournament(self):
         tournament_info = {}
 
@@ -18,10 +19,16 @@ class View_tournament:
             print ("1. create tournament")
             print ("2. restart tournament")
             print ("3. tournament report")
+            print ("4. exit")
 
             choice = input ("\n Enter your choice : ")
 
-            if choice in ["1","2","3"]:
+            if choice in ["1","2","3","4"]:
                 return choice
             else:
                 print("Invalid choice \n")
+
+if __name__ == "__main__":
+        view_t = ViewTournament()
+        print(view_t.get_info_tournament())
+
