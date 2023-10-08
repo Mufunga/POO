@@ -1,0 +1,27 @@
+class View_tournament:
+    def get_info_tournament(self):
+        tournament_info = {}
+
+        print ("Enter the following information".center(80,"*"))
+
+        tournament_info["name"] = input("Enter Tournament name: \n")
+        tournament_info["place"] = input( "Enter Place: \n ")
+        tournament_info["start_date"] = input ("Enter Start date :\n")
+        tournament_info ["end_date"] = input ("Enter the end date ")
+        return tournament_info
+    
+    def display_tournament_menu (self):
+
+        while True:
+            print("\n","tournament manager".center(80,"-"),"\n")
+            print ("choose the following choice : ")
+            print ("1. create tournament")
+            print ("2. restart tournament")
+            print ("3. tournament report")
+
+            choice = input ("\n Enter your choice : ")
+
+            if choice in ["1","2","3"]:
+                return choice
+            else:
+                print("Invalid choice \n")

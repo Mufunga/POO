@@ -1,7 +1,7 @@
 from tinydb import TinyDB
 
 class Tournament:
-    def __init__(self,name,place,start_date,end_date, rounds, players, description, current_round=0, round_number=4):
+    def __init__(self,name,place,start_date,end_date, description, player_number, rounds=[], players=[],current_round=0, round_number=4):
         self.name = name
         self.place = place
         self.start_date = start_date
@@ -11,6 +11,8 @@ class Tournament:
         self.current_round = current_round
         self.round_number = round_number
         self.description = description
+        self.player_number = player_number
+
     
     def __str__(self) -> str:
         return f'{self.name} {self.place} {self.start_date} {self.end_date} {self.current_round} {self.round_number}'
