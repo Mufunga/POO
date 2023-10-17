@@ -1,7 +1,8 @@
 from tinydb import TinyDB, Query
 from datetime import datetime
 
-db = TinyDB("player_db.json")
+
+db = TinyDB("data/player_db.json")
 User = Query()
 
 class Player:
@@ -53,6 +54,8 @@ class Player:
        """Return a list of players"""
        
        all_data = db.all()
+       for player in all_data :
+           player["db_id"] = player.doc_id
        if type_player == False:
            return all_data
        else:
@@ -68,7 +71,7 @@ class Player:
     
     
 if __name__=="__main__" :
-    players = Player.all(type_player=True)
+    players = Player.get(7)
     print(players)
     
     

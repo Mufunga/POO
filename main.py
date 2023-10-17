@@ -3,7 +3,7 @@ from colorama import init
 
 def main():
     """Launch application"""
-    #for color in window console
+    # for color in window console
     init(autoreset=True)
 
     app = App_controller()

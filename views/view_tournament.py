@@ -1,6 +1,7 @@
 class ViewTournament:
     
     def get_info_tournament(self):
+        """Return  tournament info dictionary """
         tournament_info = {}
 
         print ("Enter the following information".center(80,"*"))
@@ -10,6 +11,16 @@ class ViewTournament:
         tournament_info["start_date"] = input ("Enter Start date :\n")
         tournament_info ["end_date"] = input ("Enter the end date ")
         return tournament_info
+    
+    def players_selected(self):
+         """Select the player input by the user"""
+         players_selected = {}
+         players_selected["id_1"] = input ("Enter the fist player:\n")
+         players_selected ["id_2"] = input("Enter the second player:\n")
+      
+              
+         
+         
     
     def display_tournament_menu (self):
 
