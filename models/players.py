@@ -37,7 +37,7 @@ class Player:
     
     #def update_player(self):
       # self.db_id = db.update({self.first_name: first_name})
-
+    
     @classmethod 
     def get(cls, id):
       """Return a player object"""
@@ -67,11 +67,9 @@ class Player:
           
     
     
-
-    
     
 if __name__=="__main__" :
-    players = Player.get(7)
+    players = Player.getPlayer()
     print(players)
     
     

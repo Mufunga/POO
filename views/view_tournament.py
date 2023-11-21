@@ -10,17 +10,8 @@ class ViewTournament:
         tournament_info["place"] = input( "Enter Place: \n ")
         tournament_info["start_date"] = input ("Enter Start date :\n")
         tournament_info ["end_date"] = input ("Enter the end date ")
+        
         return tournament_info
-    
-    def players_selected(self):
-         """Select the player input by the user"""
-         players_selected = {}
-         players_selected["id_1"] = input ("Enter the fist player:\n")
-         players_selected ["id_2"] = input("Enter the second player:\n")
-      
-              
-         
-         
     
     def display_tournament_menu (self):
 
@@ -39,7 +30,30 @@ class ViewTournament:
             else:
                 print("Invalid choice \n")
 
+    def get_tournament_player_id(self, valid_players_id):
+    
+            while True:
+                 
+                player_id_str = input('please indicate players id for the tournament Separate by spaces \n:' )
+                players_id = player_id_str.split()
+
+                bad_id = []
+
+                for db_id in players_id:
+                     if db_id not in valid_players_id:
+                         bad_id.append(db_id)
+
+                if len(bad_id) > 0:
+                     print (f"\n the following id(s) are not correct : {bad_id}")
+                     continue
+
+                if players_id in valid_players_id:
+                     
+                     return players_id
+
 if __name__ == "__main__":
+        
         view_t = ViewTournament()
-        print(view_t.get_info_tournament())
+        valid_players_id = [1,3,6,5]
+        print(view_t.get_tournament_player_id(valid_players_id))
 

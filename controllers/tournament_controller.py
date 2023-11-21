@@ -9,22 +9,34 @@ class Tournamentcontroller:
         self.view = ViewTournament()
         
     
-    def players_tournament(self):
-        """Return saved players"""
-        self.players = Player_controller()
+    def add_players_tournament(self):
+        """Return saved  players in the data base"""
+        players = Player_controller().show_players_list()
         players_saved = Player.all(type_player=False)
-        self.players.show_players_list()
-        for saved_player in players_saved:
-            db_ids = saved_player.get("db_id")
+        valid_players_id = [p.get("db_id") for p in players_saved]
+        player_input_id = ViewTournament.get_tournament_player_id(self)
+
+        if player_input_id == valid_players_id:
+            return player_input_id
+        else:
+            print(" saisie incorrect " + player_input_id)
+        
+
+
+
+        
+
+        
+        
             
             
     
     
     def create_tournament(self):
         tournament_infos = self.view.get_info_tournament()
-        self.players_tournament()
+        self.add_players_tournament()
 
-        print ("Selecte two players for this tournament :")
+        print ("Selecte 4 players for this tournament :")
 
 
        
@@ -50,5 +62,5 @@ class Tournamentcontroller:
 
 if __name__ == "__main__":
     tour = Tournamentcontroller()
-    print(tour.players_tournament())
+    print(tour.add_players_tournament())
 
