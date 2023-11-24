@@ -28,7 +28,9 @@ class Tournament:
             "start_date":self.start_date,
             "end_date":self.end_date,
             "current_round":self.current_round,
-            "round_number":self.round_number
+            "round_number":self.round_number,
+            "player_number":self.player_number,
+            "description": self.description
         }
         return serialize_tournament
     

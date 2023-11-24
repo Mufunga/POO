@@ -1,45 +1,34 @@
 from views.view_tournament import ViewTournament
 from models.players import Player
 from controllers.player_controller import Player_controller
+from models.tournament import Tournament
 
 
 
 class Tournamentcontroller:
     def __init__(self) -> None:
         self.view = ViewTournament()
+        self.tournament = None
         
     
     def add_players_tournament(self):
+
         """Return saved  players in the data base"""
         players = Player_controller().show_players_list()
         players_saved = Player.all(type_player=False)
-        valid_players_id = [p.get("db_id") for p in players_saved]
-        player_input_id = ViewTournament.get_tournament_player_id(self)
+        valid_players_id = [str(p.get("db_id")) for p in players_saved]
+        player_input_id = self.view.get_tournament_player_id(valid_players_id, self.tournament.player_number)
 
-        if player_input_id == valid_players_id:
-            return player_input_id
-        else:
-            print(" saisie incorrect " + player_input_id)
-        
+        for p_id in player_input_id:
+            players_for_tournament = Player.get(p_id)
+        return players_for_tournament
 
-
-
-        
-
-        
-        
-            
-            
-    
     
     def create_tournament(self):
         tournament_infos = self.view.get_info_tournament()
+        self.tournament = Tournament(**tournament_infos)
         self.add_players_tournament()
 
-        print ("Selecte 4 players for this tournament :")
-
-
-       
     
     def restart_tournament(self):
         pass
@@ -62,5 +51,8 @@ class Tournamentcontroller:
 
 if __name__ == "__main__":
     tour = Tournamentcontroller()
-    print(tour.add_players_tournament())
+    player_number = 4
+    valid_players_id = ["1","2","4","7"]
+
+    tour.add_players_tournament()
 

@@ -10,6 +10,8 @@ class ViewTournament:
         tournament_info["place"] = input( "Enter Place: \n ")
         tournament_info["start_date"] = input ("Enter Start date :\n")
         tournament_info ["end_date"] = input ("Enter the end date ")
+        tournament_info ["player_number"] = input ("Enter the number of players ")
+        tournament_info ["description"] = input ("Enter descruptions ")
         
         return tournament_info
     
@@ -30,7 +32,7 @@ class ViewTournament:
             else:
                 print("Invalid choice \n")
 
-    def get_tournament_player_id(self, valid_players_id):
+    def get_tournament_player_id(self, valid_players_id, player_number):
     
             while True:
                  
@@ -45,15 +47,14 @@ class ViewTournament:
 
                 if len(bad_id) > 0:
                      print (f"\n the following id(s) are not correct : {bad_id}")
-                     continue
 
-                if players_id in valid_players_id:
+                     continue
                      
-                     return players_id
+                return players_id
 
 if __name__ == "__main__":
         
         view_t = ViewTournament()
-        valid_players_id = [1,3,6,5]
+        valid_players_id = ["1","3","6","5"]
         print(view_t.get_tournament_player_id(valid_players_id))
 

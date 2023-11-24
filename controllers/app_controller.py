@@ -16,7 +16,7 @@ class App_controller :
          choice = self.main_menu.display_main_menu()
          if choice == "1":
              self.player_controller.player_manager()
-             print("Enter your choice:")
+             print("Enter your choice(s):")
          elif choice == "2":
              self.tournament.tournament_manager()
          elif choice == "3":
