@@ -10,24 +10,25 @@ class Tournamentcontroller:
         self.view = ViewTournament()
         self.tournament = None
         
-    
     def add_players_tournament(self):
 
         """Return saved  players in the data base"""
-        players = Player_controller().show_players_list()
+        players_l = Player_controller().show_players_list()
         players_saved = Player.all(type_player=False)
         valid_players_id = [str(p.get("db_id")) for p in players_saved]
         player_input_id = self.view.get_tournament_player_id(valid_players_id, self.tournament.player_number)
-
+        players = []
         for p_id in player_input_id:
-            players_for_tournament = Player.get(p_id)
-        return players_for_tournament
+            players.append(Player.get(p_id))
+            return players
 
-    
     def create_tournament(self):
         tournament_infos = self.view.get_info_tournament()
         self.tournament = Tournament(**tournament_infos)
+        return self.tournament
+    
         self.add_players_tournament()
+    
 
     
     def restart_tournament(self):
