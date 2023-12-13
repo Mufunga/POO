@@ -2,6 +2,10 @@ from views.view_tournament import ViewTournament
 from models.players import Player
 from controllers.player_controller import Player_controller
 from models.tournament import Tournament
+from models.match import Match
+from models.rounds import Round
+import datetime
+import random
 
 
 
@@ -26,6 +30,41 @@ class Tournamentcontroller:
         self.tournament = Tournament(**tournament_infos)
         self.add_players_tournament()
         print(self.tournament.players)
+
+    def create_round(self,players: list, current_round):
+        name = f"Round {current_round}"
+        matches = []
+        date = datetime.now
+        start_date = date.strftime("%Y-%m-%d %H:%M:%S")
+
+        while len(players) > 0:
+            player_1 = players.pop(0)
+            player_2 = players.pop(0)
+            match = Match(player_1=player_1,player_2=player_2)
+            matches.append(match)
+
+        round = Round(name = name, start_date=start_date, matches=matches)
+
+        return round
+    
+    def manage_rounds(self, tournament: Tournament):
+        exit_requested = False
+        while not exit_requested:
+            #choice = self.view.launch_rounds()
+            #if choice.lower()
+            players = tournament.players.copy()
+            if tournament.current_round == 0:
+                random.shuffle(players)
+            else:
+                players.sort(reverse=True, key=lambda player: player.score)
+                tournament.current_round += 1
+                round = self.create_round(players, tournament.current_round)
+                tournament.rounds.append(round)
+                
+            
+
+
+
     
 
     

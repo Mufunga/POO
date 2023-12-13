@@ -51,6 +51,12 @@ class ViewTournament:
                      continue
                      
                 return players_id
+            
+    def launch_rounds():
+        choice = input ("\n Do you want to launch a round (yes/no)?")
+
+         
+
 
 if __name__ == "__main__":
         

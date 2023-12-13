@@ -1,10 +1,11 @@
 
 class Round :
-    def __init__(self,round_name, start_date, end_date, game=[]):
+    def __init__(self,round_name, start_date, end_date,round_status="en cours", games=[]):
         self.round_name = round_name
         self.start_date = start_date
         self.end_date = end_date
-        self.game = game
+        self.game = games
+        self.round_status = round_status
     
     def __str__(self) -> str:
         return f'{self.round_name}, {self.start_date}, {self.end_date}'
