@@ -2,7 +2,7 @@ from tinydb import TinyDB
 from models.players import Player
 
 class Tournament:
-    def __init__(self,name,place,start_date,end_date, description, player_number, rounds=[], players=[],current_round=0, round_number=4):
+    def __init__(self,name,place,start_date,end_date, description, player_number, rounds=[], players: list =[],current_round=0, round_number=4):
         self.name = name
         self.place = place
         self.start_date = start_date

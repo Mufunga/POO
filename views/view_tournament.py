@@ -53,8 +53,9 @@ class ViewTournament:
                 return players_id
             
     def launch_rounds():
+        """return user's choice according to rounds"""
+       
         choice = input ("\n Do you want to launch a round (yes/no)?")
-
          
 
 

@@ -50,16 +50,17 @@ class Tournamentcontroller:
     def manage_rounds(self, tournament: Tournament):
         exit_requested = False
         while not exit_requested:
-            #choice = self.view.launch_rounds()
-            #if choice.lower()
-            players = tournament.players.copy()
+            choice = self.view.launch_rounds()
+            if choice.lower()== "yes":
+                players = tournament.players.copy()
             if tournament.current_round == 0:
                 random.shuffle(players)
             else:
                 players.sort(reverse=True, key=lambda player: player.score)
-                tournament.current_round += 1
-                round = self.create_round(players, tournament.current_round)
-                tournament.rounds.append(round)
+
+            tournament.current_round += 1
+            round = self.create_round(players, tournament.current_round)
+            tournament.rounds.append(round)
                 
             
 
@@ -88,6 +89,8 @@ class Tournamentcontroller:
                 exit_requested = True
 
 if __name__ == "__main__":
-    tour = Tournamentcontroller()
-    tour.add_players_tournament()
+    tour = Tournamentcontroller().create_tournament
+    print (tour)
+    #round1 =Tournamentcontroller.manage_rounds(tour)
+    #print(round1)
 
