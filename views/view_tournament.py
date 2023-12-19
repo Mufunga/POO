@@ -54,8 +54,14 @@ class ViewTournament:
             
     def launch_rounds():
         """return user's choice according to rounds"""
-       
-        choice = input ("\n Do you want to launch a round (yes/no)?")
+
+
+        valid_choice = ["yes", "no"]
+        while True:
+            choice = input ("\n Do you want to launch a round (yes/no)?")
+            if choice in valid_choice:
+                 return choice
+            print("invalid choice")
          
 
 

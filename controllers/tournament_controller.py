@@ -49,6 +49,7 @@ class Tournamentcontroller:
     
     def manage_rounds(self, tournament: Tournament):
         exit_requested = False
+
         while not exit_requested:
             choice = self.view.launch_rounds()
             if choice.lower()== "yes":
@@ -62,12 +63,6 @@ class Tournamentcontroller:
             round = self.create_round(players, tournament.current_round)
             tournament.rounds.append(round)
                 
-            
-
-
-
-    
-
     
     def restart_tournament(self):
         pass
@@ -90,7 +85,7 @@ class Tournamentcontroller:
 
 if __name__ == "__main__":
     tour = Tournamentcontroller().create_tournament
-    print (tour)
-    #round1 =Tournamentcontroller.manage_rounds(tour)
-    #print(round1)
+    #print (tour)
+    round1 =Tournamentcontroller.manage_rounds(tour)
+    print(round1)
 
