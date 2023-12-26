@@ -11,6 +11,7 @@ class ViewTournament:
         tournament_info["start_date"] = input ("Enter Start date :\n")
         tournament_info ["end_date"] = input ("Enter the end date ")
         tournament_info ["player_number"] = input ("Enter the number of players ")
+        tournament_info ["round_number"] = input ("For how many round : \n ")
         tournament_info ["description"] = input ("Enter descruptions ")
         
         return tournament_info
@@ -52,15 +53,17 @@ class ViewTournament:
                      
                 return players_id
             
-    def launch_rounds():
+    def launch_rounds(self):
         """return user's choice according to rounds"""
 
 
         valid_choice = ["yes", "no"]
         while True:
             choice = input ("\n Do you want to launch a round (yes/no)?")
+
             if choice in valid_choice:
                  return choice
+            
             print("invalid choice")
          
 

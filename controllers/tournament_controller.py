@@ -30,11 +30,12 @@ class Tournamentcontroller:
         self.tournament = Tournament(**tournament_infos)
         self.add_players_tournament()
         print(self.tournament.players)
+        self.manage_rounds()
 
     def create_round(self,players: list, current_round):
         name = f"Round {current_round}"
         matches = []
-        date = datetime.now
+        date = datetime.datetime.now()
         start_date = date.strftime("%Y-%m-%d %H:%M:%S")
 
         while len(players) > 0:
@@ -47,21 +48,26 @@ class Tournamentcontroller:
 
         return round
     
-    def manage_rounds(self, tournament: Tournament):
+    def manage_rounds(self):
         exit_requested = False
 
         while not exit_requested:
             choice = self.view.launch_rounds()
-            if choice.lower()== "yes":
-                players = tournament.players.copy()
-            if tournament.current_round == 0:
+            if choice.lower()== "no":
+                break
+            
+            players = self.tournament.players.copy()
+
+            if self.tournament.current_round == 0:
                 random.shuffle(players)
             else:
                 players.sort(reverse=True, key=lambda player: player.score)
 
-            tournament.current_round += 1
-            round = self.create_round(players, tournament.current_round)
-            tournament.rounds.append(round)
+            self.tournament.current_round += 1
+            round = self.create_round(players, self.tournament.current_round)
+            self.tournament.rounds.append(round)
+        
+        self.tournament.save()
                 
     
     def restart_tournament(self):
@@ -84,8 +90,6 @@ class Tournamentcontroller:
                 exit_requested = True
 
 if __name__ == "__main__":
-    tour = Tournamentcontroller().create_tournament
-    #print (tour)
-    round1 =Tournamentcontroller.manage_rounds(tour)
-    print(round1)
+    tour = Tournamentcontroller()
+    tour.manage_rounds()
 
