@@ -46,6 +46,8 @@ class Player:
       if data is None:
           return None
       
+      data["db_id"] = data.doc_id
+
       player = Player(**data)
       return player
     

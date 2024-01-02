@@ -33,18 +33,19 @@ class Tournamentcontroller:
         self.manage_rounds()
 
     def create_round(self,players: list, current_round):
-        name = f"Round {current_round}"
+        round_name = f"Round {current_round}"
         matches = []
         date = datetime.datetime.now()
         start_date = date.strftime("%Y-%m-%d %H:%M:%S")
+        end_date = date.strftime("%Y-%m-%d %H:%M:%S")
 
         while len(players) > 0:
-            player_1 = players.pop(0)
-            player_2 = players.pop(0)
-            match = Match(player_1=player_1,player_2=player_2)
+            player1_db_id = players.pop(0)
+            player2_db_id = players.pop(0)
+            match = Match(player1_db_id=player1_db_id,player2_db_id=player2_db_id)
             matches.append(match)
 
-        round = Round(name = name, start_date=start_date, matches=matches)
+        round = Round(round_name = round_name, start_date=start_date, end_date=end_date, matches=matches)
 
         return round
     
@@ -61,7 +62,7 @@ class Tournamentcontroller:
             if self.tournament.current_round == 0:
                 random.shuffle(players)
             else:
-                players.sort(reverse=True, key=lambda player: player.score)
+                players.sort(reverse=True, key=lambda player: player.score())
 
             self.tournament.current_round += 1
             round = self.create_round(players, self.tournament.current_round)

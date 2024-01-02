@@ -28,6 +28,10 @@ class Tournament:
         for player in self.players:
             players.append(player.db_id)
 
+        rounds = []
+        for round in self.rounds:
+            rounds.append(round.serialize_round)        
+
         serialize_tournament ={
             "name":self.name,
             "place":self.place,
@@ -37,7 +41,8 @@ class Tournament:
             "round_number":self.round_number,
             "player_number":self.player_number,
             "description": self.description,
-            "players":players
+            "players":players,
+            "rounds":rounds
             
         }
         return serialize_tournament
