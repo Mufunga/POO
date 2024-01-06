@@ -13,6 +13,7 @@ class Tournamentcontroller:
     def __init__(self) -> None:
         self.view = ViewTournament()
         self.tournament = None
+        self.match_t = Match()
         
     def add_players_tournament(self):
 
@@ -62,13 +63,19 @@ class Tournamentcontroller:
             if self.tournament.current_round == 0:
                 random.shuffle(players)
             else:
-                players.sort(reverse=True, key=lambda player: player.score())
+                players.sort(reverse=True, key=lambda player: player.score)
 
             self.tournament.current_round += 1
             round = self.create_round(players, self.tournament.current_round)
             self.tournament.rounds.append(round)
         
         self.tournament.save()
+
+    def desplay_match(self):
+        pass
+        
+
+
                 
     
     def restart_tournament(self):
@@ -92,5 +99,5 @@ class Tournamentcontroller:
 
 if __name__ == "__main__":
     tour = Tournamentcontroller()
-    tour.manage_rounds()
+    tour.desplay_match()
 

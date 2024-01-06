@@ -6,12 +6,13 @@ db = TinyDB("data/player_db.json")
 User = Query()
 
 class Player:
-    def __init__(self,first_name, name, birthday,chess_id, db_id=None):
+    def __init__(self,first_name, name, birthday,chess_id, score=0, db_id=None):
         self.first_name =first_name
         self.name = name
         self.birthday = birthday
         self.chess_id = chess_id
         self.db_id = db_id
+        self.score = score
 
     
     def __str__(self):
