@@ -65,6 +65,17 @@ class ViewTournament:
                  return choice
             
             print("invalid choice")
+
+    def match_result(self):
+         
+         valid_choice = ["yes", "no"]
+         while True:
+              choice = input ("\n Do you want to enter the match result? ")
+
+              if choice in valid_choice:
+                   return choice
+              
+              print("Invlid choice")
          
 
 
