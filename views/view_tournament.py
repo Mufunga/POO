@@ -66,16 +66,32 @@ class ViewTournament:
             
             print("invalid choice")
 
-    def match_result(self):
-         
+    def match_note_request(self):
          valid_choice = ["yes", "no"]
          while True:
-              choice = input ("\n Do you want to enter the match result? ")
+              choice = input ("\n Do you want to enter the match note? ")
 
               if choice in valid_choice:
                    return choice
               
               print("Invlid choice")
+
+
+    def desplay_match(self, round):
+        for match in round.matches:
+            print (f"{match.player1.name} VS {match.player2.name}")
+
+    def get_score (self):
+         note = [1,0]
+         while True:
+              print("\n" "Do you want to fill result ?".center(80,"*"), "\n")
+              score_input = input("\n Enter 1 for winner and 0 for loser separeted by space keyboard :")
+              score = score_input.split()
+
+              if score in note:
+                   return int(score)
+              
+              print ("invalid choice")
          
 
 

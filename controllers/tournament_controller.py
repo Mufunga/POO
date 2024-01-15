@@ -68,20 +68,22 @@ class Tournamentcontroller:
             round = self.create_round(players, self.tournament.current_round)
             self.tournament.rounds.append(round)
 
-            desplay_matchs = self.desplay_match(round)
-            if self.tournament.current_round >= self.tournament.round_number:
-                result = self.view.match_result()
-                if result.lower() == "no":
-                    round.round_status == "Waitting to enter results"
+            desplay_matchs = self.view.desplay_match(round)
+            result = self.view.match_note_request()
+            if result.lower() == "no":
+                break
+            
+            for matches in desplay_matchs:
+                print (matches)
+            get_match_note = self.view.get_score()
+
+
+            #if self.tournament.current_round >= self.tournament.round_number:
 
 
             return self.match_score
         
         self.tournament.save()
-
-    def desplay_match(self, round):
-        for match in round.matches:
-            print (match)
 
     def match_score(self):
         pass
