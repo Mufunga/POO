@@ -40,9 +40,9 @@ class Tournamentcontroller:
         end_date = date.strftime("%Y-%m-%d %H:%M:%S")
 
         while len(players) > 0:
-            player1_db_id = players.pop(0)
-            player2_db_id = players.pop(0)
-            match = Match(player1_db_id=player1_db_id,player2_db_id=player2_db_id)
+            player1 = players.pop(0)
+            player2 = players.pop(0)
+            match = Match(player1=player1,player2=player2)
             matches.append(match)
 
         round = Round(round_name = round_name, start_date=start_date, end_date=end_date, matches=matches)

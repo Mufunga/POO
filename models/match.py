@@ -11,8 +11,8 @@ class Match:
 
     def serialize (self):
         match ={
-            "player_1":self.player1.db_id,
-            "player_2":self.player2.db_id,
+            "player1":self.player1.db_id,
+            "player2":self.player2.db_id,
             "score_player_1":self.score_player_1,
             "score_player_2":self.score_player_2
         }
