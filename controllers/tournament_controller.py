@@ -73,9 +73,9 @@ class Tournamentcontroller:
             if result.lower() == "no":
                 break
             
-            for matches in desplay_matchs:
-                print (matches)
-            get_match_note = self.view.get_score()
+            #for matches in desplay_matchs:
+                #print (matches)
+            get_match_note = self.view.get_score(round)
 
 
             #if self.tournament.current_round >= self.tournament.round_number:

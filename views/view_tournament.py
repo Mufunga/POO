@@ -56,7 +56,6 @@ class ViewTournament:
     def launch_rounds(self):
         """return user's choice according to rounds"""
 
-
         valid_choice = ["yes", "no"]
         while True:
             choice = input ("\n Do you want to launch a round (yes/no)?")
@@ -80,18 +79,16 @@ class ViewTournament:
     def desplay_match(self, round):
         for match in round.matches:
             print (f"{match.player1.name} VS {match.player2.name}")
+        print("****************************************************************************")
+            
+         
 
-    def get_score (self):
-         note = [1,0]
-         while True:
-              print("\n" "Do you want to fill result ?".center(80,"*"), "\n")
-              score_input = input("\n Enter 1 for winner and 0 for loser separeted by space keyboard :")
-              score = score_input.split()
+    def get_score (self,round):
+         for match in round.matches:
+            
+            print (f"What is the score betwin {match.player1.name} VS {match.player2.name}")
+            print("************************************************************************")
 
-              if score in note:
-                   return int(score)
-              
-              print ("invalid choice")
          
 
 
