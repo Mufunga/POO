@@ -84,10 +84,19 @@ class ViewTournament:
          
 
     def get_score (self,round):
+         valid_score = [1,2,3]
          for match in round.matches:
             
             print (f"What is the score betwin {match.player1.name} VS {match.player2.name}")
             print("************************************************************************")
+            input_score = input(f"Type 1 if the winner is {match.player1.name} or Type 2 if {match.player2.name} is the winner and 3 for draw:")
+         if input_score in valid_score:
+              return input_score
+         else:
+            print("score note not correct")
+         
+
+
 
          
 
