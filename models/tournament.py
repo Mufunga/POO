@@ -30,7 +30,7 @@ class Tournament:
 
         rounds = []
         for round in self.rounds:
-            rounds.append(round.serialize_round)        
+            rounds.append(round.serialize_round())        
 
         serialize_tournament ={
             "name":self.name,

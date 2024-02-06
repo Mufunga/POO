@@ -12,7 +12,7 @@ class ViewTournament:
         tournament_info ["end_date"] = input ("Enter the end date ")
         tournament_info ["player_number"] = input ("Enter the number of players ")
         tournament_info ["round_number"] = input ("For how many round : \n ")
-        tournament_info ["description"] = input ("Enter descruptions ")
+        tournament_info ["description"] = input ("Enter descriptions ")
         
         return tournament_info
     
@@ -68,7 +68,7 @@ class ViewTournament:
     def match_note_request(self):
          valid_choice = ["yes", "no"]
          while True:
-              choice = input ("\n Do you want to enter the match note? ")
+              choice = input ("\n Do you want to enter the match note (yes/no)? ")
 
               if choice in valid_choice:
                    return choice
@@ -83,17 +83,19 @@ class ViewTournament:
             
          
 
-    def get_score (self,round):
-         valid_score = [1,2,3]
-         for match in round.matches:
+    def get_score(self, match):
+         valid_score = ["1","2","3"]
+         while True:
             
-            print (f"What is the score betwin {match.player1.name} VS {match.player2.name}")
+            print(f"What is the score betwin {match.player1.name} VS {match.player2.name}")
             print("************************************************************************")
             input_score = input(f"Type 1 if the winner is {match.player1.name} or Type 2 if {match.player2.name} is the winner and 3 for draw:")
-         if input_score in valid_score:
-              return input_score
-         else:
-            print("score note not correct")
+            print(f' {type(input_score)}')
+
+            if input_score in valid_score:
+                return input_score
+            else:
+                print("score note not correct")
          
 
 

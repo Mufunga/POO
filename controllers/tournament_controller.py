@@ -72,14 +72,20 @@ class Tournamentcontroller:
             result = self.view.match_note_request()
             if result.lower() == "no":
                  break
-            #self.tournament.save()
 
             self.get_score_c(round)
+            if self.tournament.current_round >= self.tournament.round_number:
+                exit_requested = True
+
+
+        
+        self.tournament.save()
                 
     def get_score_c(self,round):
 
-        result_score = self.view.get_score(round)
+        
         for match in round.matches:
+            result_score = self.view.get_score(match)
 
             if result_score == 1:
                 match.score_player_1 = 1
@@ -89,6 +95,7 @@ class Tournamentcontroller:
                 match.score_player_1 = 0.5 
                 match.score_player_2 = 0.5         
 
+  
         
         
         
