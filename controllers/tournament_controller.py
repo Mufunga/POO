@@ -75,7 +75,8 @@ class Tournamentcontroller:
 
             self.get_score_c(round)
             if self.tournament.current_round >= self.tournament.round_number:
-                exit_requested = True
+                self.tournament.status = "Done"
+            exit_requested = True
 
 
         
@@ -111,7 +112,14 @@ class Tournamentcontroller:
                 
     
     def restart_tournament(self):
-        pass
+
+        exit_requested = False
+
+        while not exit_requested:
+            choice = self.view.resume_round()
+            if choice.lower()== "no":
+                break
+            self.tournament.all()
 
     def repport_tournament(self):
         pass

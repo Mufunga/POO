@@ -11,7 +11,7 @@ class ViewTournament:
         tournament_info["start_date"] = input ("Enter Start date :\n")
         tournament_info ["end_date"] = input ("Enter the end date ")
         tournament_info ["player_number"] = input ("Enter the number of players ")
-        tournament_info ["round_number"] = input ("For how many round : \n ")
+        tournament_info ["round_number"] = int(input ("For how many round : \n "))
         tournament_info ["description"] = input ("Enter descriptions ")
         
         return tournament_info
@@ -96,6 +96,18 @@ class ViewTournament:
                 return input_score
             else:
                 print("score note not correct")
+    
+    def resume_round(self):
+        """return user's choice according to resume tournament"""
+
+        valid_choice = ["yes", "no"]
+        while True:
+            choice = input ("\n Do you want to resume Tournaments (yes/no)?")
+
+            if choice in valid_choice:
+                 return choice
+            
+            print("invalid choice")
          
 
 

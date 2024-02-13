@@ -4,7 +4,7 @@ from models.players import Player
 db = TinyDB("data/tournament_db.json")
 
 class Tournament:
-    def __init__(self,name,place,start_date,end_date, description, player_number, rounds=[], players: list =[],current_round=0, round_number=4):
+    def __init__(self,name,place,start_date,end_date, description, player_number, rounds=[], players: list =[], status="In progress", current_round=0, round_number=4):
         self.name = name
         self.place = place
         self.start_date = start_date
@@ -15,6 +15,7 @@ class Tournament:
         self.round_number = round_number
         self.description = description
         self.player_number = player_number
+        self.status = status
 
     
     def __str__(self) -> str:
@@ -42,14 +43,29 @@ class Tournament:
             "player_number":self.player_number,
             "description": self.description,
             "players":players,
-            "rounds":rounds
+            "rounds":rounds,
+            "status":self.status
             
         }
         return serialize_tournament
     
     def save(self):
         tournament_data = db.insert(self.serialize())
+        print (len(tournament_data))
         return tournament_data
+    
+    def all(self,Type_t = False):
+        all_data = db.all()
+        for infos in all_data:
+            infos["db_id"] = infos.doc_id
+        if Type_t == False:
+            return all_data
+        else:
+            infos_tournaments = []
+            for infos_dic in all_data:
+                infos_tournaments.append(Tournament(**infos_dic))
+                return infos_tournaments
+
 
     
 
