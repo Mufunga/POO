@@ -98,7 +98,7 @@ class ViewTournament:
                 print("score note not correct")
     
     def resume_round(self):
-        """return user's choice according to resume tournament"""
+        """Return user's choice according to resume tournament"""
 
         valid_choice = ["yes", "no"]
         while True:
